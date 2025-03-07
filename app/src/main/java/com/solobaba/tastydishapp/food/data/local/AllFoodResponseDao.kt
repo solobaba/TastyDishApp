@@ -10,5 +10,5 @@ interface AllFoodResponseDao {
     suspend fun upsertAllFoodResponse(allFoodResponseEntity: AllFoodResponseEntity)
 
     @Query("SELECT * FROM AllFoodResponse")
-    suspend fun getAllFoodResponse(): AllFoodResponseEntity
+    suspend fun getAllFoodResponse(): AllFoodResponseEntity?
 }

@@ -2,4 +2,13 @@
     <string name="app_name">TastyDishApp</string>
     <string name="home">Home</string>
     <string name="generator">Generator</string>
+    <string name="retry">Retry</string>
+    <string name="hey_there_lucy">Hey there, Lucy!</string>
+    <string name="are_you_excited_to_create_a_tasty_dish_today">Are you excited to create a tasty dish today?</string>
+    <string name="search_food">Search foods...</string>
+    <string name="all">All</string>
+    <string name="morning_feast">Morning Feast</string>
+    <string name="sunrise_meal">Sunrise Meal</string>
+    <string name="dawn_delicacies">Dawn Delicacies</string>
+    <string name="all_food">All Foods</string>
 </resources>

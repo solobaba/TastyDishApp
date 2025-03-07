@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.solobaba.tastydishapp.food.presentation.screens.FoodScreenRoute
+import com.solobaba.tastydishapp.food.presentation.screens.homeScreen.FoodHomePage
 
 private const val ROUTE = "homeScreen"
 
@@ -16,6 +17,8 @@ fun NavGraphBuilder.homeRoute(
     innerPaddingValues: PaddingValues
 ) {
     composable(FoodScreenRoute.HomeScreen.route) {
-        Box(modifier = Modifier.padding(innerPaddingValues)) {  }
+        Box(modifier = Modifier.padding(innerPaddingValues)) {
+            FoodHomePage(navController)
+        }
     }
 }

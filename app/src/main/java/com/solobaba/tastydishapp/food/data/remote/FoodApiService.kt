@@ -5,10 +5,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface FoodApiService {
-    @GET("food")
+    @GET("foods")
     suspend fun getAllFoods(): AllFoodResponse
 
-    @GET("food/{foodId}")
+    @GET("foods/{foodId}")
     suspend fun getFoodDetails(
         @Path("foodId") foodId: Int = 1
     ): AllFoodResponse

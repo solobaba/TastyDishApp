@@ -30,7 +30,7 @@ class FoodRepositoryImpl @Inject constructor(
             emit(ApiResult.Loading(true))
 
             val localFoodResponse = foodDatabase.allFoodResponseDao.getAllFoodResponse()
-            val shouldLoadLocalFood = localFoodResponse.data.isNotEmpty() && !forceFetchFromRemote
+            val shouldLoadLocalFood = localFoodResponse?.data?.isNotEmpty() == true && !forceFetchFromRemote
 
             if (shouldLoadLocalFood) {
                 emit(ApiResult.Success(

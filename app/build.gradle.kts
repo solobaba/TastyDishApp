@@ -100,6 +100,7 @@ dependencies {
     implementation(libs.moshi.kotlin)
     implementation(libs.converter.moshi)
     implementation(libs.moshi)
+    kapt(libs.moshi.kotlin.codegen)
 
     //Coroutines
     implementation(libs.kotlinx.coroutines.core)

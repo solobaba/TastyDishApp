@@ -47,13 +47,6 @@ class MainActivity : ComponentActivity() {
                     }
                 ) { innerPadding ->
                     Box(
-                        modifier = Modifier
-                            .padding(
-                                bottom = max(
-                                    a = 0.dp,
-                                    b = innerPadding.calculateBottomPadding() - 20.dp
-                                ),
-                            ),
                         content = {
                             TastyDishAppNavigation(
                                 navController = navController,
