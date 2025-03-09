@@ -5,11 +5,11 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.solobaba.tastydishapp.food.presentation.screens.FoodScreenRoute
+import com.solobaba.tastydishapp.food.presentation.screens.foodDetailsScreen.SelectedFoodDetailsScreen
 
 private const val ROUTE = "foodDetailsScreen"
 
-fun NavController.navigateToFoodDetailsScreen(foodID: Int) {
+fun NavController.navigateToSelectedFoodDetailsScreen(foodID: Int) {
     navigate(route = "$ROUTE/$foodID")
 }
 
@@ -23,5 +23,6 @@ fun NavGraphBuilder.foodDetailsRoute(
             type = NavType.IntType
         })) { navBackStackEntry ->
         val foodID = navBackStackEntry.arguments?.getInt(FOOD_ID)
+        SelectedFoodDetailsScreen(navController, foodID)
     }
 }

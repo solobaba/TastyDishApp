@@ -41,6 +41,7 @@ import coil.size.Size
 import com.solobaba.tastydishapp.R
 import com.solobaba.tastydishapp.food.domain.model.DomainFoodData
 import com.solobaba.tastydishapp.food.presentation.components.CircularIndeterminateProgressBar
+import com.solobaba.tastydishapp.food.presentation.navigation.navGraphBuilder.navigateToSelectedFoodDetailsScreen
 import com.solobaba.tastydishapp.food.presentation.viewmodel.FoodDishViewModel
 import com.solobaba.tastydishapp.ui.theme.Black1
 import com.solobaba.tastydishapp.ui.theme.Grey1
@@ -96,7 +97,7 @@ fun FoodDataLayout(
         colors = CardDefaults.cardColors(Color.White),
         border = BorderStroke(width = 1.dp, color = Grey1),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-        onClick = { }
+        onClick = { navController.navigateToSelectedFoodDetailsScreen(foodData?.id ?: 1) }
     ) {
         Column {
             AsyncImage(
