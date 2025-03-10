@@ -8,12 +8,13 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.solobaba.tastydishapp.food.presentation.screens.FoodScreenRoute
+import com.solobaba.tastydishapp.food.presentation.screens.addFoodScreen.AddFoodScreenLayout
 
 fun NavGraphBuilder.addFoodRoute(
     navController: NavController,
     innerPaddingValues: PaddingValues
 ) {
     composable(FoodScreenRoute.AddFoodScreen.route) {
-        Box(modifier = Modifier.padding(innerPaddingValues)) {  }
+        AddFoodScreenLayout(navController = navController)
     }
 }

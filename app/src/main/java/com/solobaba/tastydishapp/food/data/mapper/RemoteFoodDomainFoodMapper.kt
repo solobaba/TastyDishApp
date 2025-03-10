@@ -4,18 +4,20 @@ import com.solobaba.tastydishapp.food.data.local.AllFoodResponseEntity
 import com.solobaba.tastydishapp.food.data.remote.response.AllFoodResponse
 import com.solobaba.tastydishapp.food.data.remote.response.Category
 import com.solobaba.tastydishapp.food.data.remote.response.FoodData
+import com.solobaba.tastydishapp.food.data.remote.response.FoodDetailsResponse
 import com.solobaba.tastydishapp.food.data.remote.response.FoodImage
 import com.solobaba.tastydishapp.food.domain.model.DomainAllFoodResponse
 import com.solobaba.tastydishapp.food.domain.model.DomainCategory
 import com.solobaba.tastydishapp.food.domain.model.DomainFoodData
+import com.solobaba.tastydishapp.food.domain.model.DomainFoodDetailsResponse
 import com.solobaba.tastydishapp.food.domain.model.DomainFoodImage
 
 class RemoteFoodDomainFoodMapper {
-    fun mapRemoteFoodToDomainFood(allFoodResponse: AllFoodResponse?): DomainAllFoodResponse? {
-        if (allFoodResponse == null) return null
-        return with(allFoodResponse) {
-            DomainAllFoodResponse(
-                data = data.map { it.toDomainFoodData() },
+    fun mapRemoteFoodToDomainFood(foodDetailsResponse: FoodDetailsResponse?): DomainFoodDetailsResponse? {
+        if (foodDetailsResponse == null) return null
+        return with(foodDetailsResponse) {
+            DomainFoodDetailsResponse(
+                data = data.toDomainFoodData(),
                 message = message,
                 status = status
             )

@@ -23,6 +23,6 @@ fun NavGraphBuilder.foodDetailsRoute(
             type = NavType.IntType
         })) { navBackStackEntry ->
         val foodID = navBackStackEntry.arguments?.getInt(FOOD_ID)
-        SelectedFoodDetailsScreen(navController, foodID)
+        SelectedFoodDetailsScreen(navController, foodID ?: 1)
     }
 }

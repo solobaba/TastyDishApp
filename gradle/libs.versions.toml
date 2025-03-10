@@ -30,6 +30,8 @@ retrofit = "2.9.0"
 retrofit2KotlinCoroutinesAdapter = "0.9.2"
 roomKtx = "2.6.1"
 runtimeLivedata = "1.7.8"
+constraintLayout = "1.1.1"
+coil = "3.0.4"
 
 [libraries]
 accompanist-coil = { module = "dev.chrisbanes.accompanist:accompanist-coil", version.ref = "accompanistCoil" }
@@ -75,6 +77,9 @@ moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", ver
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit2-kotlin-coroutines-adapter = { module = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter", version.ref = "retrofit2KotlinCoroutinesAdapter" }
+compose-constraint = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintLayout" }
+coil3-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil3-network = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

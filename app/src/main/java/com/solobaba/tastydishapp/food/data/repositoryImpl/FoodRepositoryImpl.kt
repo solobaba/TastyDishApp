@@ -6,6 +6,7 @@ import com.solobaba.tastydishapp.food.data.mapper.RemoteFoodDomainFoodMapper
 import com.solobaba.tastydishapp.food.data.mapper.RemoteFoodLocalFoodMapper
 import com.solobaba.tastydishapp.food.data.remote.FoodApiService
 import com.solobaba.tastydishapp.food.domain.model.DomainAllFoodResponse
+import com.solobaba.tastydishapp.food.domain.model.DomainFoodDetailsResponse
 import com.solobaba.tastydishapp.food.domain.repository.DomainFoodRepository
 import com.solobaba.tastydishapp.util.ApiResult
 import kotlinx.coroutines.flow.Flow
@@ -78,7 +79,7 @@ class FoodRepositoryImpl @Inject constructor(
 
     override suspend fun getFoodDetailsById(
         foodId: Int
-    ): Flow<ApiResult<DomainAllFoodResponse>> {
+    ): Flow<ApiResult<DomainFoodDetailsResponse>> {
         return flow {
             emit(ApiResult.Loading(true))
 

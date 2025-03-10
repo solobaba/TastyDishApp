@@ -74,6 +74,8 @@ dependencies {
     //Coil
     implementation(libs.coil.compose)
     implementation(libs.accompanist.coil)
+    implementation(libs.coil3.compose)
+    implementation(libs.coil3.network)
 
     //Extended Icons
     implementation(libs.androidx.material.icons.extended)
@@ -111,11 +113,14 @@ dependencies {
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
-    // Dagger - Hilt
+    //Dagger - Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     kapt(libs.androidx.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    //Constraint layout
+    implementation(libs.compose.constraint)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

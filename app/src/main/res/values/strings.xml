@@ -12,4 +12,23 @@
     <string name="dawn_delicacies">Dawn Delicacies</string>
     <string name="all_food">All Foods</string>
     <string name="check_your_internet_connection">Check your internet connection</string>
+    <string name="add_new_food">Add new food</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="upload">Upload</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="category">Category</string>
+    <string name="calories">Calories</string>
+    <string name="tags">Tags</string>
+    <string name="add_food">Add food</string>
+    <string name="enter_food_name">Enter food name</string>
+    <string name="enter_food_description">Enter food description</string>
+    <string name="select_a_category">Select a category</string>
+    <string name="enter_number_of_calories">Enter number of calories</string>
+    <string name="add_a_tag">Add a tag</string>
+    <string name="generator_screen">Generator Screen</string>
+    <string name="favourite">Favourite</string>
+    <string name="favourite_screen">Favourite Screen</string>
+    <string name="planner">Planner</string>
+    <string name="planner_screen">Planner screen</string>
 </resources>

@@ -100,8 +100,17 @@ fun BottomNavigationBar(
                                     navController.popBackStack()
                                     navController.navigate(FoodScreenRoute.HomeScreen.route)
                                 }
+                                1 -> {
+                                    navController.navigate(FoodScreenRoute.GeneratorScreen.route)
+                                }
                                 2 -> {
                                     navController.navigate(FoodScreenRoute.AddFoodScreen.route)
+                                }
+                                3 -> {
+                                    navController.navigate(FoodScreenRoute.FavouriteScreen.route)
+                                }
+                                4 -> {
+                                    navController.navigate(FoodScreenRoute.PlannerScreen.route)
                                 }
                             }
                         },
