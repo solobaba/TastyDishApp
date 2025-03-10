@@ -47,7 +47,6 @@ class MainActivity : ComponentActivity() {
                     bottomBar = {
                         if (navBackStackEntry?.destination?.route == FoodScreenRoute.HomeScreen.route ||
                             navBackStackEntry?.destination?.route == FoodScreenRoute.GeneratorScreen.route ||
-                            navBackStackEntry?.destination?.route == FoodScreenRoute.AddFoodScreen.route ||
                             navBackStackEntry?.destination?.route == FoodScreenRoute.FavouriteScreen.route ||
                             navBackStackEntry?.destination?.route == FoodScreenRoute.PlannerScreen.route) {
                             BottomNavigationBar(

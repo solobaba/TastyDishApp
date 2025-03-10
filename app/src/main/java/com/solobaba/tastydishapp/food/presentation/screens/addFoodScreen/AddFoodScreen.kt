@@ -272,7 +272,7 @@ fun AddFoodScreenLayout(
                     onDismissRequest = { expandedCategory = false }) {
                 }
             }
-            SpacerVertical20Dp()
+            Spacer(Modifier.height(30.dp))
         }
 
         ElevatedButton(
