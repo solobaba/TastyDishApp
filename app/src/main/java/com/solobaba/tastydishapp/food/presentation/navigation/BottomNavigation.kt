@@ -32,6 +32,7 @@ import coil.compose.rememberImagePainter
 import com.solobaba.tastydishapp.R
 import com.solobaba.tastydishapp.food.presentation.events.FoodUiEvent
 import com.solobaba.tastydishapp.food.presentation.screens.FoodScreenRoute
+import com.solobaba.tastydishapp.ui.theme.Blue
 import com.solobaba.tastydishapp.ui.theme.BlueLight
 import com.solobaba.tastydishapp.ui.theme.Gray500
 
@@ -50,15 +51,15 @@ fun BottomNavigationBar(
             icon = R.drawable.ic_generator
         ),
         BottomNavItems(
-            title = "Add",
+            title = stringResource(R.string.add),
             icon = R.drawable.ic_add
         ),
         BottomNavItems(
-            title = "Favourite",
+            title = stringResource(R.string.favourite),
             icon = R.drawable.ic_favourite
         ),
         BottomNavItems(
-            title = "Planner",
+            title = stringResource(R.string.planner),
             icon = R.drawable.ic_planner
         )
     )
@@ -124,7 +125,8 @@ fun BottomNavigationBar(
                                         .width(21.dp)
                                         .height(24.dp),
                                     painter = rememberImagePainter(bottomItems.icon),
-                                    contentDescription = bottomItems.title
+                                    contentDescription = bottomItems.title,
+                                    tint = if (selectedItem.intValue == index) Blue else Color.Gray
                                 )
                                 Text(
                                     text = bottomItems.title,

@@ -4,9 +4,10 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import com.google.gson.Gson
 
-fun logTrace(text: String) =  Log.d("Smartx", text)
+fun logTrace(text: String) =  Log.d("TastyDishApp", text)
 
 //Json To Object
 fun <A> String.fromJson(type: Class<A>): A {
@@ -34,11 +35,15 @@ fun Context.shortIntToast(msg: Int) {
 }
 
 object NetworkUtils {
-    @JvmStatic
     fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkInfo = connectivityManager.activeNetworkInfo
-        return networkInfo != null && networkInfo.isConnectedOrConnecting
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+        val isConnected = networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+
+        Log.d("NetworkUtils", "Network available: $isConnected") //Log network state
+        return isConnected
     }
 }
 

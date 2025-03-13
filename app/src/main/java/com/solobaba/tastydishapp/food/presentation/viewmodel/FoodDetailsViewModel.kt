@@ -7,6 +7,7 @@ import com.solobaba.tastydishapp.food.domain.model.DomainFoodData
 import com.solobaba.tastydishapp.food.domain.repository.DomainFoodRepository
 import com.solobaba.tastydishapp.food.presentation.state.FoodDetailsState
 import com.solobaba.tastydishapp.util.ApiResult
+import com.solobaba.tastydishapp.util.NetworkUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,6 +23,7 @@ class FoodDetailsViewModel @Inject constructor(
     private val foodRepository: DomainFoodRepository
 ) : ViewModel() {
     var foodID: Int = 1
+
     private val _foodDetailsState = MutableStateFlow(FoodDetailsState())
     val foodDetailsState = _foodDetailsState.asStateFlow()
 
@@ -30,6 +32,14 @@ class FoodDetailsViewModel @Inject constructor(
 
     val _loading = MutableStateFlow(false)
     val loading = _loading.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            _loading.value = true
+            delay(2000)
+            _loading.value = false
+        }
+    }
 
     fun fetchSelectedFoodDetails(foodID: Int) {
         Log.d("FoodDetailsViewModel", "Fetching details for foodID: $foodID")

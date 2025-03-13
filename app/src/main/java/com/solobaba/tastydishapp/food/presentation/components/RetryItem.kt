@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.solobaba.tastydishapp.R
+import com.solobaba.tastydishapp.util.SpacerVertical15Dp
 
 @Composable
 fun RetryItem(
@@ -45,7 +46,7 @@ fun RetryItem(
             }
         }
 
-        Spacer(modifier = Modifier.height(15.dp))
+        SpacerVertical15Dp()
 
         message?.let {
             Text(
