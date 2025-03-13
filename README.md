@@ -46,9 +46,9 @@ An android app that display list of meals and view the meal details.
 
 <p align="center">
   <img src="screenshots/homepage.jpg" alt="Home page screen" width="40%" hspace="15" />
-  <img src="screenshots/foodDetailsScreen.jpg" alt="Food details screen" width="1080" hspace="15" />
-  <img src="screenshots/GeneratorScreen.jpg" alt="Generator screen" width="1080" hspace="15" />
-  <img src="screenshots/AddFoodScreen.jpg" alt="Addfood screen" width="1080" hspace="15" />
-  <img src="screenshots/FavouriteScreen.jpg" alt="Favourite screen" width="1080" hspace="15" />
-  <img src="screenshots/PlannerScreen.jpg" alt="Planner screen" width="1080" hspace="15" />
+  <img src="screenshots/foodDetailsScreen.jpg" alt="Food details screen" width="40%" hspace="15" />
+  <img src="screenshots/GeneratorScreen.jpg" alt="Generator screen" width="40%" hspace="15" />
+  <img src="screenshots/AddFoodScreen.jpg" alt="Addfood screen" width="40%" hspace="15" />
+  <img src="screenshots/FavouriteScreen.jpg" alt="Favourite screen" width="40%" hspace="15" />
+  <img src="screenshots/PlannerScreen.jpg" alt="Planner screen" width="40%" hspace="15" />
 </p>
