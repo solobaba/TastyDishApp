@@ -21,7 +21,7 @@ fun TastyDishAppNavigation(
     NavHost(
         navController = navController, startDestination = FoodScreenRoute.HomeScreen.route
     ) {
-        homeRoute(navController, innerPadding)
+        homeRoute(navController, innerPadding) {}
         foodDetailsRoute(navController)
         generatorRoute(navController)
         addFoodRoute(navController, innerPadding)

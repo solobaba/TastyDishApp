@@ -51,7 +51,7 @@ import com.solobaba.tastydishapp.util.SpacerVertical10Dp
 @Composable
 fun FoodList(navController: NavController) {
     val viewmodel = hiltViewModel<FoodDishViewModel>()
-    val foodState = viewmodel.foodState.collectAsState().value
+    val foodState = viewmodel.uiFoodState.collectAsState().value
     val foodData = viewmodel.domainFoodResponse.collectAsState().value
     val loading = viewmodel.loading.collectAsState().value
 

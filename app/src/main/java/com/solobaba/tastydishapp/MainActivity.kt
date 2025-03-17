@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val viewModel = hiltViewModel<FoodDishViewModel>()
 
-            val isAvailable = NetworkUtils.isNetworkAvailable(this)
+            val isAvailable = NetworkUtils.observeConnectivityAsFlow(this)
             Log.d("NetworkCheck", "Network available (before UI loads): $isAvailable")
 
             TastyDishAppTheme {
@@ -63,7 +63,8 @@ class MainActivity : ComponentActivity() {
                                 shape = CircleShape
                             ) {
                                 Icon(
-                                    painter = painterResource(id = android.R.drawable.ic_input_add),
+                                    //painter = painterResource(id = android.R.drawable.ic_input_add),
+                                    painter = painterResource(id = R.drawable.ic_add_food),
                                     contentDescription = "Add Food"
                                 )
                             }

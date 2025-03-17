@@ -4,8 +4,14 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import android.net.ConnectivityManager
+import android.net.Network
 import android.net.NetworkCapabilities
+import android.net.NetworkRequest
 import com.google.gson.Gson
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 
 fun logTrace(text: String) =  Log.d("TastyDishApp", text)
 
@@ -34,16 +40,53 @@ fun Context.shortIntToast(msg: Int) {
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 }
 
+//object NetworkUtils {
+//    fun isNetworkAvailable(context: Context): Boolean {
+//        val connectivityManager =
+//            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+//        val network = connectivityManager.activeNetwork
+//        val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+//        val isConnected = networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+//
+//        Log.d("NetworkUtils", "Network available: $isConnected") //Log network state
+//        return isConnected
+//    }
+//}
+
+//object NetworkUtils {
+//    @JvmStatic
+//    fun isNetworkAvailable(context: Context): Boolean {
+//        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+//        val networkInfo = connectivityManager.activeNetworkInfo
+//        return networkInfo != null && networkInfo.isConnectedOrConnecting
+//    }
+//}
+
 object NetworkUtils {
     fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork
-        val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
-        val isConnected = networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+        val capabilities = connectivityManager.getNetworkCapabilities(network)
+        return capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+    }
 
-        Log.d("NetworkUtils", "Network available: $isConnected") //Log network state
-        return isConnected
+    fun observeConnectivityAsFlow(context: Context): Flow<Boolean> {
+        return callbackFlow {
+            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkCallback = object : ConnectivityManager.NetworkCallback() {
+                override fun onAvailable(network: Network) {
+                    trySend(true)
+                }
+
+                override fun onLost(network: Network) {
+                    trySend(false)
+                }
+            }
+
+            val request = NetworkRequest.Builder().build()
+            connectivityManager.registerNetworkCallback(request, networkCallback)
+            awaitClose { connectivityManager.unregisterNetworkCallback(networkCallback) }
+        }.distinctUntilChanged()
     }
 }
 

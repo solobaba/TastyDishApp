@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,8 +28,13 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -68,15 +74,21 @@ fun LoadFoodDetailsContent(
 ) {
     val context = LocalContext.current
 
-    val isNetworkAvailable by produceState(initialValue = NetworkUtils.isNetworkAvailable(context)) {
-        while (true) {
-            value = NetworkUtils.isNetworkAvailable(context)
-            Log.d("NetworkCheck", "Updated network state: $value") // Debugging log
-            delay(2000) // Check every 2 seconds
+    //Immediately check and set initial network state
+    var isNetworkAvailable by remember { mutableStateOf(NetworkUtils.isNetworkAvailable(context)) }
+
+    //Continuously listen for network changes
+    LaunchedEffect(Unit) {
+        // First, check again to ensure the latest state
+        isNetworkAvailable = NetworkUtils.isNetworkAvailable(context)
+
+        // Then, observe further changes
+        NetworkUtils.observeConnectivityAsFlow(context).collect { newState ->
+            isNetworkAvailable = newState
         }
     }
 
-    Box(modifier = Modifier
+    Column(modifier = Modifier
         .fillMaxSize()
         .background(color = Color.White)) {
         if (!isNetworkAvailable) {
@@ -84,23 +96,15 @@ fun LoadFoodDetailsContent(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(16.dp)
-                    .background(color = Color.Yellow),
+                    .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Text(
-                    text = stringResource(id = R.string.check_your_internet_connection),
-                    color = Color.Red,
-                    fontSize = 18.sp,
-                    textAlign = TextAlign.Center
-                )
                 SpacerVertical15Dp()
                 RetryItem(
                     modifier = Modifier
                         .width(90.dp)
-                        .height(40.dp)
-                        .background(color = Color.Green),
+                        .height(40.dp),
                     message = stringResource(id = R.string.check_your_internet_connection),
                     onClick = {
                         navController.popBackStack()

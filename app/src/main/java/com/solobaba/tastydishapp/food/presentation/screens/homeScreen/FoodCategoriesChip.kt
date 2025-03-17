@@ -24,13 +24,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.solobaba.tastydishapp.R
-import com.solobaba.tastydishapp.food.data.remote.response.Category
+import com.solobaba.tastydishapp.food.domain.model.DomainCategory
 import com.solobaba.tastydishapp.ui.theme.Blue
 import com.solobaba.tastydishapp.ui.theme.Grey1
 import com.solobaba.tastydishapp.ui.theme.Grey2
 
 @Composable
-fun ChipGroup(chipItems: List<Category>, onItemClick: (Category) -> Unit) {
+fun FoodCategoriesChip(chipItems: List<DomainCategory>, onItemClick: (DomainCategory) -> Unit) {
 
     var selectedIndex by rememberSaveable { mutableIntStateOf(0) }
 
@@ -41,7 +41,7 @@ fun ChipGroup(chipItems: List<Category>, onItemClick: (Category) -> Unit) {
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         //contentPadding = PaddingValues(vertical = 4.dp, horizontal = 16.dp)
     ) {
-        itemsIndexed(categories) { index, chipItem ->
+        itemsIndexed(chipItems) { index, chipItem ->
             val isSelected = selectedIndex == index
             FilterChip(
                 selected = true,
@@ -68,15 +68,15 @@ fun ChipGroup(chipItems: List<Category>, onItemClick: (Category) -> Unit) {
 }
 
 val categories = listOf(
-    Category("", "", 1, "All", ""),
-    Category("", "", 1, "Morning Feast", ""),
-    Category("", "", 1, "Sunrise Meal", ""),
-    Category("", "", 1, "Dawn Delicacies", "")
+    DomainCategory("", "", 1, "All", ""),
+    DomainCategory("", "", 1, "Morning Feast", ""),
+    DomainCategory("", "", 1, "Sunrise Meal", ""),
+    DomainCategory("", "", 1, "Dawn Delicacies", "")
 )
 
 @Preview
 @Composable
 fun ChipGroupPreview() {
-    ChipGroup(chipItems = categories) {
+    FoodCategoriesChip(chipItems = categories) {
     }
 }
