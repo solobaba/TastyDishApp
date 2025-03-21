@@ -45,7 +45,7 @@ fun PlannerScreen(
                 navigationIcon = {
                     AppBarComponent(
                         icon = R.drawable.ic_arrow_square_back,
-                        onClick = { navController.popBackStack() },
+                        onClick = { navController.navigateUp() },
                         modifier = Modifier.padding(start = 8.dp, end = 8.dp)
                     )
                 },

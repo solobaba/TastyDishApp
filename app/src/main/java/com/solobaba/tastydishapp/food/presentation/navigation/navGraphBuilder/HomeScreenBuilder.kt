@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.solobaba.tastydishapp.food.domain.model.DomainCategory
+import com.solobaba.tastydishapp.food.domain.model.response.DomainCategory
 import com.solobaba.tastydishapp.food.presentation.screens.FoodScreenRoute
 import com.solobaba.tastydishapp.food.presentation.screens.homeScreen.FoodHomePage
 

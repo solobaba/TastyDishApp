@@ -1,4 +1,4 @@
-package com.solobaba.tastydishapp.food.domain.model
+package com.solobaba.tastydishapp.food.domain.model.response
 
 import com.squareup.moshi.JsonClass
 

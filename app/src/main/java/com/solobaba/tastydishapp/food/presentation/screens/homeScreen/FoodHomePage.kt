@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.solobaba.tastydishapp.R
-import com.solobaba.tastydishapp.food.domain.model.DomainCategory
+import com.solobaba.tastydishapp.food.domain.model.response.DomainCategory
 import com.solobaba.tastydishapp.food.presentation.state.FoodDishState
 import com.solobaba.tastydishapp.food.presentation.viewmodel.FoodDishViewModel
 import com.solobaba.tastydishapp.util.SpacerVertical20Dp

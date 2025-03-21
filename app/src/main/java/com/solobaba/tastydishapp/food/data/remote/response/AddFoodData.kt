@@ -8,9 +8,9 @@ data class AddFoodData(
     val description: String = "",
     val category: Category? = null,
     val calories: String = "",
-    val selectedTags: SnapshotStateList<Tag> = SnapshotStateList(),
+    val selectedTags: SnapshotStateList<FoodTag> = SnapshotStateList(),
     val isLoading: Boolean = false,
     val categories: List<Category> = emptyList(),
-    val tags: List<Tag> = emptyList(),
+    val tags: List<FoodTag> = emptyList(),
     val imageUris: SnapshotStateList<Uri> = SnapshotStateList()
 )

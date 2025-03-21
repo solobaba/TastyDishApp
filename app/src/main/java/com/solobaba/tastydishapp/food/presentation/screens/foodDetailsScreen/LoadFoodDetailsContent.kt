@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -28,12 +27,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -44,13 +40,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.solobaba.tastydishapp.R
-import com.solobaba.tastydishapp.food.domain.model.DomainFoodData
+import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodData
 import com.solobaba.tastydishapp.food.presentation.components.AppBarComponent
 import com.solobaba.tastydishapp.food.presentation.components.CircularIndeterminateProgressBar
 import com.solobaba.tastydishapp.food.presentation.components.RetryItem
@@ -63,7 +58,6 @@ import com.solobaba.tastydishapp.util.NetworkUtils
 import com.solobaba.tastydishapp.util.SpacerVertical10Dp
 import com.solobaba.tastydishapp.util.SpacerVertical15Dp
 import com.solobaba.tastydishapp.util.SpacerVertical5Dp
-import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -1,11 +1,11 @@
 package com.solobaba.tastydishapp.food.data.mapper
 
-import com.solobaba.tastydishapp.food.data.remote.response.BaseResponse
+import com.solobaba.tastydishapp.food.data.remote.response.FoodBaseResponse
 import com.solobaba.tastydishapp.food.data.remote.response.Category
-import com.solobaba.tastydishapp.food.domain.model.DomainCategory
+import com.solobaba.tastydishapp.food.domain.model.response.DomainCategory
 
 class RemoteCategoryDomainCategoryMapper {
-    fun mapRemoteCategoriesToDomainCategories(categories: BaseResponse<List<Category>>?): List<DomainCategory>? {
+    fun mapRemoteCategoriesToDomainCategories(categories: FoodBaseResponse<List<Category>>?): List<DomainCategory>? {
         return categories?.data?.map { category ->
             DomainCategory(
                 created_at = category.created_at,

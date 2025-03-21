@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.solobaba.tastydishapp.food.domain.model.DomainCategory
-import com.solobaba.tastydishapp.food.domain.model.DomainFoodData
+import com.solobaba.tastydishapp.food.domain.model.response.DomainCategory
+import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodData
 import com.solobaba.tastydishapp.food.domain.repository.DomainFoodRepository
 import com.solobaba.tastydishapp.food.presentation.events.FoodUiEvent
 import com.solobaba.tastydishapp.food.presentation.state.FoodDishState
@@ -42,21 +42,11 @@ class FoodDishViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            try {
-                _loading.value = true
-                delay(2000) //Simulating loading state, consider removing for production
-
-                //Run both API calls in parallel for efficiency
-                coroutineScope {
-                    launch { getFoodCategories() }
-                    launch { getAllFoods(false) }
-                }
-            } catch (e: Exception) {
-                _error.value = e.message //Store error message
-                Log.d("FoodDishViewModel", "Error fetching food data: ${e.message}")
-            } finally {
-                _loading.value = false
-            }
+            _loading.value = true
+            delay(2000) //Simulating loading state, consider removing for production
+            getFoodCategories()
+            getAllFoods(false)
+            _loading.value = false
         }
     }
 

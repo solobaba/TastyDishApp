@@ -25,12 +25,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.solobaba.tastydishapp.R
-import com.solobaba.tastydishapp.food.data.remote.response.Tag
+import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodTag
 import com.solobaba.tastydishapp.ui.theme.Grey1
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun TagsComponent(modifier: Modifier = Modifier, tags: List<Tag>, onDelete: (Tag) -> Unit) {
+fun TagsComponent(
+    modifier: Modifier = Modifier,
+    tags: List<DomainFoodTag>,
+    onDelete: (DomainFoodTag) -> Unit
+) {
     Box(
         modifier = modifier
             .fillMaxWidth()

@@ -3,11 +3,10 @@ package com.solobaba.tastydishapp.food.presentation.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.solobaba.tastydishapp.food.domain.model.DomainFoodData
+import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodData
 import com.solobaba.tastydishapp.food.domain.repository.DomainFoodRepository
 import com.solobaba.tastydishapp.food.presentation.state.FoodDetailsState
 import com.solobaba.tastydishapp.util.ApiResult
-import com.solobaba.tastydishapp.util.NetworkUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

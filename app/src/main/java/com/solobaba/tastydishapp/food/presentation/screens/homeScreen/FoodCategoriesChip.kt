@@ -2,7 +2,6 @@ package com.solobaba.tastydishapp.food.presentation.screens.homeScreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
@@ -24,7 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.solobaba.tastydishapp.R
-import com.solobaba.tastydishapp.food.domain.model.DomainCategory
+import com.solobaba.tastydishapp.food.domain.model.response.DomainCategory
 import com.solobaba.tastydishapp.ui.theme.Blue
 import com.solobaba.tastydishapp.ui.theme.Grey1
 import com.solobaba.tastydishapp.ui.theme.Grey2

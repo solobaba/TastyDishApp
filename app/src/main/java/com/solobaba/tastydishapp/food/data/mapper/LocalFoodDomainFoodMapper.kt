@@ -4,10 +4,10 @@ import com.solobaba.tastydishapp.food.data.local.AllFoodResponseEntity
 import com.solobaba.tastydishapp.food.data.remote.response.Category
 import com.solobaba.tastydishapp.food.data.remote.response.FoodData
 import com.solobaba.tastydishapp.food.data.remote.response.FoodImage
-import com.solobaba.tastydishapp.food.domain.model.DomainAllFoodResponse
-import com.solobaba.tastydishapp.food.domain.model.DomainCategory
-import com.solobaba.tastydishapp.food.domain.model.DomainFoodData
-import com.solobaba.tastydishapp.food.domain.model.DomainFoodImage
+import com.solobaba.tastydishapp.food.domain.model.response.DomainAllFoodResponse
+import com.solobaba.tastydishapp.food.domain.model.response.DomainCategory
+import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodData
+import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodImage
 
 class LocalFoodDomainFoodMapper {
     fun mapLocalFoodToDomainFood(allFoodResponseEntity: AllFoodResponseEntity?): DomainAllFoodResponse? {

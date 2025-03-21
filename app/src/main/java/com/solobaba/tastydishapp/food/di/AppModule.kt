@@ -6,8 +6,6 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.solobaba.tastydishapp.food.data.local.FoodDatabase
 import com.solobaba.tastydishapp.food.data.remote.Constants
 import com.solobaba.tastydishapp.food.data.remote.FoodApiService
-import com.solobaba.tastydishapp.food.data.repositoryImpl.FoodRepositoryImpl
-import com.solobaba.tastydishapp.food.domain.repository.DomainFoodRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

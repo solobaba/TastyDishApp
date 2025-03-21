@@ -1,8 +1,8 @@
 package com.solobaba.tastydishapp.food.presentation.state
 
 import androidx.compose.runtime.snapshots.SnapshotStateList
-import com.solobaba.tastydishapp.food.domain.model.DomainCategory
-import com.solobaba.tastydishapp.food.domain.model.DomainFoodData
+import com.solobaba.tastydishapp.food.domain.model.response.DomainCategory
+import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodData
 
 data class FoodDishState(
     var isLoading: Boolean = false,

@@ -39,7 +39,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import coil.size.Size
 import com.solobaba.tastydishapp.R
-import com.solobaba.tastydishapp.food.domain.model.DomainFoodData
+import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodData
 import com.solobaba.tastydishapp.food.presentation.components.CircularIndeterminateProgressBar
 import com.solobaba.tastydishapp.food.presentation.navigation.navGraphBuilder.navigateToSelectedFoodDetailsScreen
 import com.solobaba.tastydishapp.food.presentation.viewmodel.FoodDishViewModel
