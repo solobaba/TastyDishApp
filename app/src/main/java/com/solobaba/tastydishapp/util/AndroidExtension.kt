@@ -8,7 +8,10 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.net.Uri
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import com.google.gson.Gson
+import com.solobaba.tastydishapp.R
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
@@ -125,3 +128,7 @@ fun createImageFile(context: Context): File {
     val storageDir = context.getExternalFilesDir(null)
     return File.createTempFile("JPEG_${timestamp}_", ".jpg", storageDir)
 }
+
+val MulishRegular = FontFamily(Font(R.font.mulish_regular))
+val MulishBold = FontFamily(Font(R.font.mulish_bold))
+val MerriWeather = FontFamily(Font(R.font.merriweather_black))

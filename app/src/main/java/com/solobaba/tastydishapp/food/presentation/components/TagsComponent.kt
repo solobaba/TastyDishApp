@@ -22,7 +22,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import com.solobaba.tastydishapp.R
 import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodTag
@@ -48,12 +51,12 @@ fun TagsComponent(
         if (tags.isEmpty()) {
             Text(
                 text = "Add a tag",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                style = MaterialTheme.typography.bodySmall.copy(
+                    fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                    color = Color.Gray
+                ),
                 modifier = Modifier
-                    .align(
-                        Alignment.CenterStart
-                    )
+                    .align(Alignment.CenterStart)
                     .padding(start = 16.dp)
             )
         } else {
@@ -76,8 +79,10 @@ fun TagsComponent(
                     ) {
                         Text(
                             text = tag.name,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                                color = Color.Black
+                            ),
                         )
                         Spacer(Modifier.width(4.dp))
                         Image(

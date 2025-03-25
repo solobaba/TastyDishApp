@@ -75,11 +75,9 @@ class AddFoodViewModel @Inject constructor(
     fun deleteTag(tag: DomainFoodTag) {
         val currentTags: SnapshotStateList<DomainFoodTag> = SnapshotStateList()
         currentTags.addAll(uiAddFoodState.value.selectedTags)
-        if (!currentTags.contains(tag)) {
+        _uiAddFoodState.update {
             currentTags.remove(tag)
-            _uiAddFoodState.update {
-                it.copy(selectedTags = currentTags)
-            }
+            it.copy(selectedTags = currentTags)
         }
     }
 

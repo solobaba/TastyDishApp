@@ -1,6 +1,5 @@
 package com.solobaba.tastydishapp.food.presentation.screens.addFoodScreen
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -39,6 +38,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.material3.*
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -47,13 +48,13 @@ import com.solobaba.tastydishapp.food.presentation.components.AppBarComponent
 import com.solobaba.tastydishapp.food.presentation.components.ImageComponent
 import com.solobaba.tastydishapp.food.presentation.components.TagsComponent
 import com.solobaba.tastydishapp.food.presentation.components.UploadFoodComponent
-import com.solobaba.tastydishapp.food.presentation.screens.homeScreen.TagComponent
 import com.solobaba.tastydishapp.food.presentation.state.AddFoodScreenLayoutActions
 import com.solobaba.tastydishapp.food.presentation.state.AddFoodUIState
 import com.solobaba.tastydishapp.ui.theme.Black1
 import com.solobaba.tastydishapp.ui.theme.Blue2
 import com.solobaba.tastydishapp.ui.theme.DefaultIconColor
 import com.solobaba.tastydishapp.ui.theme.White
+import com.solobaba.tastydishapp.util.MulishRegular
 import com.solobaba.tastydishapp.util.SpacerVertical10Dp
 import com.solobaba.tastydishapp.util.SpacerVertical3Dp
 import com.solobaba.tastydishapp.util.SpacerVertical5Dp
@@ -135,8 +136,10 @@ fun AddFoodScreenLayout(
             Text(
                 text = stringResource(R.string.name),
                 modifier = Modifier.padding(horizontal = 16.dp),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontFamily = MulishRegular,
+                    color = Color.Black
+                )
             )
             SpacerVertical3Dp()
             OutlinedTextField(
@@ -148,19 +151,31 @@ fun AddFoodScreenLayout(
                 placeholder = {
                     Text(
                         text = stringResource(R.string.enter_food_name),
-                        style = MaterialTheme.typography.bodySmall
+                        style = MaterialTheme.typography.bodySmall.copy(
+                            fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                            color = Color.Gray
+                        )
                     )
                 },
                 singleLine = true,
-                textStyle = MaterialTheme.typography.bodyMedium
+                textStyle = MaterialTheme.typography.bodyMedium.copy(
+                    fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                    color = Color.Black
+                ),
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = Color.LightGray,
+                    focusedBorderColor = Color.DarkGray.copy(0.5f),
+                    cursorColor = Color.DarkGray
+                )
             )
 
             SpacerVertical10Dp()
             Text(
                 text = stringResource(R.string.description),
                 modifier = Modifier.padding(horizontal = 16.dp),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                style = MaterialTheme.typography.bodyMedium.copy(),
+                fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                color = Color.Black
             )
             SpacerVertical3Dp()
             OutlinedTextField(
@@ -172,18 +187,30 @@ fun AddFoodScreenLayout(
                 placeholder = {
                     Text(
                         text = stringResource(R.string.enter_food_description),
-                        style = MaterialTheme.typography.bodySmall
+                        style = MaterialTheme.typography.bodySmall.copy(
+                            fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                            color = Color.Gray
+                        )
                     )
                 },
                 minLines = 3,
-                textStyle = MaterialTheme.typography.bodyMedium
+                textStyle = MaterialTheme.typography.bodyMedium.copy(
+                    fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                    color = Color.Black
+                ),
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = Color.LightGray,
+                    focusedBorderColor = Color.DarkGray.copy(0.5f),
+                    cursorColor = Color.DarkGray
+                )
             )
             SpacerVertical10Dp()
             Text(
                 text = stringResource(R.string.category),
                 modifier = Modifier.padding(horizontal = 16.dp),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                color = Color.Black
             )
             SpacerVertical3Dp()
             var expandedCategory by remember { mutableStateOf(false) }
@@ -200,7 +227,10 @@ fun AddFoodScreenLayout(
                     placeholder = {
                         Text(
                             text = stringResource(R.string.select_a_category),
-                            style = MaterialTheme.typography.bodySmall
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                                color = Color.Gray
+                            )
                         )
                     },
                     trailingIcon = {
@@ -209,7 +239,15 @@ fun AddFoodScreenLayout(
                             contentDescription = "Drop down icon"
                         )
                     },
-                    textStyle = MaterialTheme.typography.bodyMedium,
+                    textStyle = MaterialTheme.typography.bodyMedium.copy(
+                        fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                        color = Color.Black
+                    ),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedBorderColor = Color.LightGray,
+                        focusedBorderColor = Color.DarkGray.copy(0.5f),
+                        cursorColor = Color.DarkGray
+                    ),
                     readOnly = true
                 )
                 ExposedDropdownMenu(
@@ -220,7 +258,9 @@ fun AddFoodScreenLayout(
                             text = {
                                 Text(
                                     text = it.name,
-                                    style = MaterialTheme.typography.bodyMedium
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                                    color = Color.White
                                 )
                             },
                             onClick = {
@@ -239,7 +279,8 @@ fun AddFoodScreenLayout(
                 text = stringResource(R.string.calories),
                 modifier = Modifier.padding(horizontal = 16.dp),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                color = Color.Black
             )
             SpacerVertical3Dp()
             OutlinedTextField(
@@ -251,12 +292,23 @@ fun AddFoodScreenLayout(
                 placeholder = {
                     Text(
                         text = stringResource(R.string.enter_number_of_calories),
-                        style = MaterialTheme.typography.bodySmall
+                        style = MaterialTheme.typography.bodySmall.copy(
+                            fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                            color = Color.Gray
+                        )
                     )
                 },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                textStyle = MaterialTheme.typography.bodyMedium
+                textStyle = MaterialTheme.typography.bodyMedium.copy(
+                    fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                    color = Color.Black
+                ),
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = Color.LightGray,
+                    focusedBorderColor = Color.DarkGray.copy(0.5f),
+                    cursorColor = Color.DarkGray
+                )
             )
 
             SpacerVertical10Dp()
@@ -265,7 +317,8 @@ fun AddFoodScreenLayout(
                 text = stringResource(R.string.tags),
                 modifier = Modifier.padding(horizontal = 16.dp),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                color = Color.Black
             )
             SpacerVertical3Dp()
             var expandedTag by remember { mutableStateOf(false) }
@@ -280,27 +333,6 @@ fun AddFoodScreenLayout(
                     tags = uiFoodState.selectedTags.toList(),
                     onDelete = { onAction(AddFoodScreenLayoutActions.OnDeleteTag(it)) }
                 )
-//                    OutlinedTextField(
-//                        value = "",
-//                        onValueChange = { },
-//                        modifier = Modifier
-//                            .fillMaxWidth()
-//                            .padding(horizontal = 16.dp),
-//                        placeholder = {
-//                            Text(
-//                                text = stringResource(R.string.add_a_tag),
-//                                style = MaterialTheme.typography.bodySmall
-//                            )
-//                        },
-//                        trailingIcon = {
-//                            Icon(
-//                                painter = painterResource(R.drawable.ic_caret_down),
-//                                contentDescription = "Drop down icon"
-//                            )
-//                        },
-//                        textStyle = MaterialTheme.typography.bodyMedium,
-//                        readOnly = true
-//                    )
                 ExposedDropdownMenu(
                     expanded = expandedTag,
                     onDismissRequest = { expandedTag = false }) {
@@ -308,11 +340,13 @@ fun AddFoodScreenLayout(
                         DropdownMenuItem(text = {
                             Text(
                                 text = tags.name,
-                                style = MaterialTheme.typography.bodyMedium
+                                style = MaterialTheme.typography.bodyMedium,
+                                fontFamily = FontFamily(Font(R.font.mulish_regular)),
+                                color = Color.White
                             )
                         }, onClick = {
-                            onAction(AddFoodScreenLayoutActions.OnTagSelected(tags))
                             expandedTag = false
+                            onAction(AddFoodScreenLayoutActions.OnTagSelected(tags))
                         })
                     }
                 }
@@ -321,7 +355,7 @@ fun AddFoodScreenLayout(
         }
 
         ElevatedButton(
-            onClick = { },
+            onClick = { onAction(AddFoodScreenLayoutActions.OnCreateClick) },
             shape = RoundedCornerShape(4.dp),
             enabled = addFoodButtonState,
             colors = ButtonDefaults.buttonColors(

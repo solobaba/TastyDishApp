@@ -1,8 +1,6 @@
 package com.solobaba.tastydishapp.food.presentation.state
 
 import android.net.Uri
-import com.solobaba.tastydishapp.food.data.remote.response.Category
-import com.solobaba.tastydishapp.food.data.remote.response.FoodTag
 import com.solobaba.tastydishapp.food.domain.model.response.DomainCategory
 import com.solobaba.tastydishapp.food.domain.model.response.DomainFoodTag
 
